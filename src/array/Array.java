@@ -1,7 +1,7 @@
 package array;
 
 /**
- * Created by krasimir94 on 10.10.15.
+ *   @author raikov.krasimir@gmail.com (Krasimir Raikov)
  */
 public class Array {
 
