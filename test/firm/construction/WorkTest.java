@@ -16,33 +16,34 @@ import static org.hamcrest.core.IsEqual.equalTo;
  * @author raikov.krasimir@gmail.com (Krasimir Raikov)
  */
 @RunWith(Parameterized.class)
-public class MaterialTest {
+public class WorkTest {
+
+  private double price;
+  private double mechanisation;
+  private double taxes;
+  private double result;
 
   @Parameters
   public static Collection<Object[]> params(){
     return Arrays.asList(new Object[][]{
-            {10, 20, 20, 26.40},{5, 7, 13, 14.61}, {19, 52, 2, 3.62}
+            {2.45, 5, 45, 3.73},{10, 5, 40, 14.70},{53, 21, 34, 85.93}
     });
   }
 
-  private double ts;
-  private double vat;
-  private double price;
-  private double result;
+  public WorkTest(double price, double mechanisation, double taxes, double result){
 
-  public MaterialTest(double ts, double vat, double price, double result){
-    this.ts = ts;
-    this.vat = vat;
     this.price = price;
+    this.mechanisation = mechanisation;
+    this.taxes = taxes;
     this.result = result;
   }
 
   @Test
-  public void materialPriceCalculation() {
-    Material material= new Material("bricks");
-    material.setPrice(price);
-    material.setTransportStorage(ts);
-    material.setVat(vat);
-    assertThat(material.getPrice(), is(equalTo(result)));
+  public void workPriceCalculation() {
+    Labour work = new Labour();
+    work.setPrice(price);
+    work.setMechanisation(mechanisation);
+    work.setTaxes(taxes);
+    assertThat(work.getPrice(), is(equalTo(result)));
   }
 }
