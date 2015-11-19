@@ -15,16 +15,15 @@ public class ServiceTest {
   public void servicePriceCalculation() {
 
     Service service = new Service();
-    Material material=new Material("material");
-    material.setPrice(4);
-    material.setTransportStorage(10);
-    material.setVat(7);
+    Material material=new Material("material", 4, 10, 7);
     service.addMaterial(material);
-    Labour labour= new Labour();
-    labour.setPrice(35);
-    labour.setTaxes(40);
-    labour.setMechanisation(23);
+    Labour labour= new Labour(35, 40, 23);
     service.addLabour(labour);
     assertThat(service.getPrice(), is(equalTo(64.98)));
+    Material material1= new Material("material2", 51, 42, 3);
+    Labour labour1= new Labour(2, 92, 32);
+    service.addLabour(labour1);
+    service.addMaterial(material1);
+    assertThat(service.getPrice(), is(equalTo(144.64)));
   }
 }

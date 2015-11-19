@@ -16,6 +16,14 @@ public class Material {
     this.name = name;
   }
 
+  public Material(String name, double price, double transportStorage, double vat) {
+
+    this.name = name;
+    this.originalPrice = price;
+    this.transportStorage = transportStorage;
+    this.vat = vat;
+  }
+
   public double getPrice() {
     price=originalPrice*(vat*0.01+1)*(transportStorage*0.01+1);
     DecimalFormat df = new DecimalFormat("0.00");

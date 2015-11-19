@@ -39,10 +39,7 @@ public class MaterialTest {
 
   @Test
   public void materialPriceCalculation() {
-    Material material= new Material("bricks");
-    material.setPrice(price);
-    material.setTransportStorage(ts);
-    material.setVat(vat);
+    Material material= new Material("bricks", price, ts, vat);
     assertThat(material.getPrice(), is(equalTo(result)));
   }
 }

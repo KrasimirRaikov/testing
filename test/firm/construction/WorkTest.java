@@ -40,10 +40,7 @@ public class WorkTest {
 
   @Test
   public void workPriceCalculation() {
-    Labour work = new Labour();
-    work.setPrice(price);
-    work.setMechanisation(mechanisation);
-    work.setTaxes(taxes);
+    Labour work = new Labour(price, taxes, mechanisation);
     assertThat(work.getPrice(), is(equalTo(result)));
   }
 }

@@ -12,6 +12,12 @@ public class Labour {
   private double mechanisation=5;
   private double originalPrice;
 
+  public Labour(double price, double taxes, double mechanisation) {
+    this.originalPrice = price;
+    this.taxes = taxes;
+    this.mechanisation = mechanisation;
+  }
+
   public void setPrice(double price){
     this.originalPrice=price;
     this.price=price*(mechanisation*0.01+1)*(taxes*0.01+1);
