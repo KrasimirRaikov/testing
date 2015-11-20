@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -41,5 +42,14 @@ public class MaterialTest {
   public void materialPriceCalculation() {
     Material material= new Material("bricks", price, ts, vat);
     assertThat(material.getPrice(), is(equalTo(result)));
+  }
+
+  @Test
+  public void materialPriceQuantityCalculation(){
+    Material material= new Material("cement", price, ts, vat);
+    material.setQuantity(6);
+    DecimalFormat df = new DecimalFormat("0.00");
+    double res=Double.valueOf(df.format(price*(ts*0.01+1)*(vat*0.01+1)*6));
+    assertThat(material.getPrice(), is(equalTo(res)));
   }
 }

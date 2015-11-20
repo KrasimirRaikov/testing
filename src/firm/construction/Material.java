@@ -8,9 +8,10 @@ import java.text.DecimalFormat;
 public class Material {
   private String name;
   private double price;
-  private double vat=20;
-  private double transportStorage=5;
+  private double vat = 20;
+  private double transportStorage = 5;
   private double originalPrice;
+  private double quantity=1;
 
   public Material(String name) {
     this.name = name;
@@ -25,14 +26,14 @@ public class Material {
   }
 
   public double getPrice() {
-    price=originalPrice*(vat*0.01+1)*(transportStorage*0.01+1);
+    price = originalPrice * (vat * 0.01 + 1) * (transportStorage * 0.01 + 1)*quantity;
     DecimalFormat df = new DecimalFormat("0.00");
     return Double.valueOf(df.format(price));
   }
 
   public void setPrice(double price) {
-    originalPrice=price;
-    this.price = price*(vat*0.01+1)*(transportStorage*0.01+1);
+    originalPrice = price;
+    this.price = price * (vat * 0.01 + 1) * (transportStorage * 0.01 + 1);
   }
 
   public void setVat(double vat) {
@@ -49,5 +50,9 @@ public class Material {
 
   public double getTransportStorage() {
     return transportStorage;
+  }
+
+  public void setQuantity(double quantity) {
+    this.quantity = quantity;
   }
 }
