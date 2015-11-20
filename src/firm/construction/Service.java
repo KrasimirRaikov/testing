@@ -55,4 +55,16 @@ public class Service {
     return this.serviceName.equals(that.getServiceName());
 
   }
+
+  public String print() {
+    String result="";
+    String newLine=System.getProperty("line.separator");
+    for(Material material: materials){
+      result+=material.print()+newLine;
+    }
+    for (Labour work: labours){
+      result += work.print()+newLine;
+    }
+    return result;
+  }
 }

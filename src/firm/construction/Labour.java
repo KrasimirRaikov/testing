@@ -7,6 +7,7 @@ import java.text.DecimalFormat;
  */
 public class Labour {
 
+  private String name;
   private double price;
   private double taxes=40;
   private double mechanisation=5;
@@ -17,6 +18,15 @@ public class Labour {
     this.originalPrice = price;
     this.taxes = taxes;
     this.mechanisation = mechanisation;
+  }
+
+  public Labour(String name, double price, double taxes, double mechanisation, double quantity) {
+
+    this.name = name;
+    this.originalPrice = price;
+    this.taxes = taxes;
+    this.mechanisation = mechanisation;
+    this.quantity = quantity;
   }
 
   public void setPrice(double price){
@@ -40,5 +50,17 @@ public class Labour {
 
   public void setQuantity(double quantity) {
     this.quantity = quantity;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public double getQuantity() {
+    return quantity;
+  }
+
+  public String print() {
+    return "labour: "+name+" price: "+getPrice()+" quantity: "+quantity;
   }
 }

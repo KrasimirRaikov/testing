@@ -5,7 +5,6 @@ import org.junit.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
-import static org.junit.Assert.fail;
 
 /**
  * @author raikov.krasimir@gmail.com (Krasimir Raikov)
@@ -48,7 +47,14 @@ public class ServiceTest {
 
   @Test
   public void printService(){
-    fail();
+    Service service= new Service("few");
+    String newLine= System.getProperty("line.separator");
+    service.addMaterial(new Material("gtre", 24, 13, 34));
+    service.addLabour(new Labour("req", 42, 65, 42));
+    service.addLabour(new Labour("rew", 23, 42, 23));
+    assertThat(service.print(), is(equalTo("Material: gtre price: 36.34" +newLine+
+            "labour: null price: 98.41 quantity: 1.0" +newLine+
+            "labour: null price: 40.17 quantity: 1.0"+newLine)));
   }
 
 }
