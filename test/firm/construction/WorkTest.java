@@ -25,13 +25,13 @@ public class WorkTest {
   private double result;
 
   @Parameters
-  public static Collection<Object[]> params(){
+  public static Collection<Object[]> params() {
     return Arrays.asList(new Object[][]{
-            {2.45, 5, 45, 3.73},{10, 5, 40, 14.70},{53, 21, 34, 85.93}
+            {2.45, 5, 45, 3.73}, {10, 5, 40, 14.70}, {53, 21, 34, 85.93}
     });
   }
 
-  public WorkTest(double price, double mechanisation, double taxes, double result){
+  public WorkTest(double price, double mechanisation, double taxes, double result) {
 
     this.price = price;
     this.mechanisation = mechanisation;
@@ -50,7 +50,7 @@ public class WorkTest {
     Labour work = new Labour(price, taxes, mechanisation);
     work.setQuantity(2.5);
     DecimalFormat df = new DecimalFormat("0.00");
-    double res= Double.valueOf(df.format(price*(taxes*0.01+1)*(mechanisation*0.01+1)*2.5));
+    double res = Double.valueOf(df.format(price * (taxes * 0.01 + 1) * (mechanisation * 0.01 + 1) * 2.5));
     assertThat(work.getPrice(), is(equalTo(res)));
 
   }

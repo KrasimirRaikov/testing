@@ -20,9 +20,9 @@ import static org.hamcrest.core.IsEqual.equalTo;
 public class MaterialTest {
 
   @Parameters
-  public static Collection<Object[]> params(){
+  public static Collection<Object[]> params() {
     return Arrays.asList(new Object[][]{
-            {10, 20, 20, 26.40},{5, 7, 13, 14.61}, {19, 52, 2, 3.62}
+            {10, 20, 20, 26.40}, {5, 7, 13, 14.61}, {19, 52, 2, 3.62}
     });
   }
 
@@ -31,7 +31,7 @@ public class MaterialTest {
   private double price;
   private double result;
 
-  public MaterialTest(double ts, double vat, double price, double result){
+  public MaterialTest(double ts, double vat, double price, double result) {
     this.ts = ts;
     this.vat = vat;
     this.price = price;
@@ -40,16 +40,16 @@ public class MaterialTest {
 
   @Test
   public void materialPriceCalculation() {
-    Material material= new Material("bricks", price, ts, vat);
+    Material material = new Material("bricks", price, ts, vat);
     assertThat(material.getPrice(), is(equalTo(result)));
   }
 
   @Test
-  public void materialPriceQuantityCalculation(){
-    Material material= new Material("cement", price, ts, vat);
+  public void materialPriceQuantityCalculation() {
+    Material material = new Material("cement", price, ts, vat);
     material.setQuantity(6);
     DecimalFormat df = new DecimalFormat("0.00");
-    double res=Double.valueOf(df.format(price*(ts*0.01+1)*(vat*0.01+1)*6));
+    double res = Double.valueOf(df.format(price * (ts * 0.01 + 1) * (vat * 0.01 + 1) * 6));
     assertThat(material.getPrice(), is(equalTo(res)));
   }
 }
