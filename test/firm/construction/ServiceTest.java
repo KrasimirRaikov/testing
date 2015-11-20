@@ -5,6 +5,7 @@ import org.junit.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.Assert.fail;
 
 /**
  * @author raikov.krasimir@gmail.com (Krasimir Raikov)
@@ -26,6 +27,7 @@ public class ServiceTest {
     service.addLabour(labour1);
     service.addMaterial(material1);
     assertThat(service.getPrice(), is(equalTo(144.64)));
+
   }
 
   @Test
@@ -42,6 +44,11 @@ public class ServiceTest {
     service.addMaterial(material1);
     service.setQuantity(2);
     assertThat(service.getPrice(), is(equalTo(321.70)));
+  }
+
+  @Test
+  public void printService(){
+    fail();
   }
 
 }

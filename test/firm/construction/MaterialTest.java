@@ -52,4 +52,10 @@ public class MaterialTest {
     double res = Double.valueOf(df.format(price * (ts * 0.01 + 1) * (vat * 0.01 + 1) * 6));
     assertThat(material.getPrice(), is(equalTo(res)));
   }
+
+  @Test
+  public void printMaterial() {
+    Material material = new Material("block", price, ts, vat);
+    assertThat(material.print(), is(equalTo("Material: "+material.getName()+" price: "+material.getPrice())));
+  }
 }

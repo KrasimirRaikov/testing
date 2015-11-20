@@ -55,4 +55,12 @@ public class Material {
   public void setQuantity(double quantity) {
     this.quantity = quantity;
   }
+
+  public String getName() {
+    return name;
+  }
+
+  public String print() {
+    return "Material: "+name+" price: "+getPrice();
+  }
 }
