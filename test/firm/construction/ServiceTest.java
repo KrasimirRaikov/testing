@@ -11,6 +11,7 @@ import static org.hamcrest.core.IsEqual.equalTo;
  */
 public class ServiceTest {
 
+
   @Test
   public void servicePriceCalculation() {
 
@@ -25,5 +26,22 @@ public class ServiceTest {
     service.addLabour(labour1);
     service.addMaterial(material1);
     assertThat(service.getPrice(), is(equalTo(144.64)));
+  }
+
+  @Test
+  public void servicePriceQuantityCalculation() {
+    Service service = new Service();
+    Material material=new Material("m", 3, 19,57);
+    service.addMaterial(material);
+    Labour labour= new Labour(12, 4, 2);
+    service.addLabour(labour);
+    assertThat(service.getPrice(), is(equalTo(18.33)));
+    Material material1= new Material("sk", 92,2, 23);
+    Labour labour1= new Labour(22, 9, 13);
+    service.addLabour(labour1);
+    service.addMaterial(material1);
+    service.setQuantity(2);
+    assertThat(service.getPrice(), is(equalTo(321.70)));
+
   }
 }
