@@ -11,6 +11,7 @@ public class Labour {
   private double taxes=40;
   private double mechanisation=5;
   private double originalPrice;
+  private double quantity=1;
 
   public Labour(double price, double taxes, double mechanisation) {
     this.originalPrice = price;
@@ -20,11 +21,11 @@ public class Labour {
 
   public void setPrice(double price){
     this.originalPrice=price;
-    this.price=price*(mechanisation*0.01+1)*(taxes*0.01+1);
+
   }
 
   public double getPrice() {
-    this.price=originalPrice*(mechanisation*0.01+1)*(taxes*0.01+1);
+    this.price=originalPrice*(mechanisation*0.01+1)*(taxes*0.01+1)*quantity;
     DecimalFormat df = new DecimalFormat("0.00");
     return Double.valueOf(df.format(price));
   }
@@ -35,5 +36,9 @@ public class Labour {
 
   public void setTaxes(double taxes) {
     this.taxes = taxes;
+  }
+
+  public void setQuantity(double quantity) {
+    this.quantity = quantity;
   }
 }

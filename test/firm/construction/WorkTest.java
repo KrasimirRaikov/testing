@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -42,5 +43,15 @@ public class WorkTest {
   public void workPriceCalculation() {
     Labour work = new Labour(price, taxes, mechanisation);
     assertThat(work.getPrice(), is(equalTo(result)));
+  }
+
+  @Test
+  public void workPriceQuantityCalculation() {
+    Labour work = new Labour(price, taxes, mechanisation);
+    work.setQuantity(2.5);
+    DecimalFormat df = new DecimalFormat("0.00");
+    double res= Double.valueOf(df.format(price*(taxes*0.01+1)*(mechanisation*0.01+1)*2.5));
+    assertThat(work.getPrice(), is(equalTo(res)));
+
   }
 }
