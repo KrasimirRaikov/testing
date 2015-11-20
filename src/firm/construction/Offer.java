@@ -24,4 +24,10 @@ public class Offer {
     DecimalFormat df = new DecimalFormat("0.00");
     return Double.valueOf(df.format(sum));
   }
+
+
+  public double getServicePrice(String serviceName) {
+    DecimalFormat df= new DecimalFormat("0.00");
+    return Double.valueOf(df.format(services.get(services.indexOf(new Service(serviceName))).getPrice()));
+  }
 }
