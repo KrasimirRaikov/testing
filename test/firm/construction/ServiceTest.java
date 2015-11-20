@@ -15,7 +15,7 @@ public class ServiceTest {
   @Test
   public void servicePriceCalculation() {
 
-    Service service = new Service();
+    Service service = new Service("1");
     Material material = new Material("material", 4, 10, 7);
     service.addMaterial(material);
     Labour labour = new Labour(35, 40, 23);
@@ -30,7 +30,7 @@ public class ServiceTest {
 
   @Test
   public void servicePriceQuantityCalculation() {
-    Service service = new Service();
+    Service service = new Service("2432");
     Material material = new Material("m", 3, 19, 57);
     service.addMaterial(material);
     Labour labour = new Labour(12, 4, 2);

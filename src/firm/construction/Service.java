@@ -13,8 +13,7 @@ public class Service {
   private List<Labour> labours = new ArrayList<>();
   private double quantity = 1;
   private String serviceName;
-
-  public Service(){}
+  
 
   public Service(String serviceName) {
 

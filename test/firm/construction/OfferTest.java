@@ -14,11 +14,11 @@ public class OfferTest {
   @Test
   public void makeOffer() {
     Offer offer= new Offer();
-    Service service= new Service();
+    Service service= new Service("s");
     service.addLabour(new Labour(3, 40, 23));
     service.addMaterial(new Material("sdf", 40, 10, 7));
 
-    Service service2= new Service();
+    Service service2= new Service("k");
     service2.addLabour(new Labour(45, 30, 4));
     service2.addMaterial(new Material("fde", 24, 43, 34));
 
@@ -35,4 +35,6 @@ public class OfferTest {
     offer.makeOffer(service);
     assertThat(offer.getServicePrice("rt"), is(equalTo(584.21)));
   }
+
+
 }
