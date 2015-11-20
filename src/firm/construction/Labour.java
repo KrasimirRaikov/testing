@@ -13,7 +13,7 @@ public class Labour {
   private double originalPrice;
   private double quantity=1;
 
-  public Labour(double price, double taxes, double mechanisation) {
+  public Labour(String name, double price, double taxes, double mechanisation) {
     this.originalPrice = price;
     this.taxes = taxes;
     this.mechanisation = mechanisation;

@@ -41,17 +41,18 @@ public class WorkTest {
 
   @Test
   public void workPriceCalculation() {
-    Labour work = new Labour(price, taxes, mechanisation);
+    Labour work = new Labour("gheui", price, taxes, mechanisation);
     assertThat(work.getPrice(), is(equalTo(result)));
   }
 
   @Test
   public void workPriceQuantityCalculation() {
-    Labour work = new Labour(price, taxes, mechanisation);
+    Labour work = new Labour("dsf", price, taxes, mechanisation);
     work.setQuantity(2.5);
     DecimalFormat df = new DecimalFormat("0.00");
     double res = Double.valueOf(df.format(price * (taxes * 0.01 + 1) * (mechanisation * 0.01 + 1) * 2.5));
     assertThat(work.getPrice(), is(equalTo(res)));
-
   }
+
+
 }
