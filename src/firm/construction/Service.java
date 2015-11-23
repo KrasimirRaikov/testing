@@ -1,5 +1,6 @@
 package firm.construction;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -37,7 +38,8 @@ public class Service {
       sum += l.getPrice();
     }
     price = sum * quantity;
-    return price;
+    DecimalFormat df = new DecimalFormat("0.00");
+    return Double.valueOf(df.format(price));
   }
 
   public void setQuantity(double quantity) {
@@ -67,5 +69,9 @@ public class Service {
       result += work.print()+newLine;
     }
     return result;
+  }
+
+  public double getQuantity() {
+    return quantity;
   }
 }

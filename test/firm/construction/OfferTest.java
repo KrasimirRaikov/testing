@@ -36,5 +36,19 @@ public class OfferTest {
     assertThat(offer.getServicePrice("rt"), is(equalTo(584.21)));
   }
 
+  @Test
+  public void printOffer() {
+    String separator= System.getProperty("line.separator");
+    Offer offer= new Offer();
+    Service service= new Service("ASD");
+    service.addLabour(new Labour("sdf", 342.3, 23, 34, 2));
+    service.addMaterial(new Material("erw", 234, 23, 32));
+    Service service2= new Service("PTS");
+    service2.addMaterial(new Material("we", 43, 2, 43));
+    service2.addLabour(new Labour("dfs", 32, 43, 32, 4));
+    offer.makeOffer(service, service2);
+    assertThat(offer.printOffer(), is(equalTo("ASD quantity:1.0 price:1508.28" +separator+
+            "PTS quantity:1.0 price:304.33"+separator)));
+  }
 
 }

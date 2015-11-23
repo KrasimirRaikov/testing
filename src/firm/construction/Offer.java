@@ -30,4 +30,13 @@ public class Offer {
     DecimalFormat df= new DecimalFormat("0.00");
     return Double.valueOf(df.format(services.get(services.indexOf(new Service(serviceName))).getPrice()));
   }
+
+  public String printOffer() {
+    String massage="";
+    String separator=System.getProperty("line.separator");
+    for(Service service: services){
+      massage+= service.getServiceName()+" quantity:"+service.getQuantity()+" price:"+service.getPrice()+separator;
+    }
+    return massage;
+  }
 }
