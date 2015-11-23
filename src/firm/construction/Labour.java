@@ -8,11 +8,10 @@ import java.text.DecimalFormat;
 public class Labour {
 
   private String name;
-  private double price;
-  private double taxes=40;
-  private double mechanisation=5;
+  private double taxes = 40;
+  private double mechanisation = 5;
   private double originalPrice;
-  private double quantity=1;
+  private double quantity = 1;
 
   public Labour(String name, double price, double taxes, double mechanisation) {
     this.originalPrice = price;
@@ -29,13 +28,13 @@ public class Labour {
     this.quantity = quantity;
   }
 
-  public void setPrice(double price){
-    this.originalPrice=price;
+  public void setPrice(double price) {
+    this.originalPrice = price;
 
   }
 
   public double getPrice() {
-    this.price=originalPrice*(mechanisation*0.01+1)*(taxes*0.01+1)*quantity;
+    double price = originalPrice * (mechanisation * 0.01 + 1) * (taxes * 0.01 + 1) * quantity;
     DecimalFormat df = new DecimalFormat("0.00");
     return Double.valueOf(df.format(price));
   }
@@ -61,6 +60,6 @@ public class Labour {
   }
 
   public String print() {
-    return "labour: "+name+" price: "+getPrice()+" quantity: "+quantity;
+    return "labour: " + name + " price: " + getPrice() + " quantity: " + quantity;
   }
 }

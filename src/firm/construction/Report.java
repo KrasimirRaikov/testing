@@ -10,18 +10,18 @@ import java.util.List;
  */
 public class Report {
 
-  private List<Service> services= new ArrayList<>();
+  private List<Service> servicesReports = new ArrayList<>();
 
   public double getTotalPrice() {
-    double sum= 0;
-    for(Service service: services){
-      sum+=service.getPrice();
+    double sum = 0;
+    for (Service service : servicesReports) {
+      sum += service.getPrice();
     }
     DecimalFormat df = new DecimalFormat("0.00");
     return Double.valueOf(df.format(sum));
   }
 
   public void addReport(Service... service) {
-    Collections.addAll(services, service);
+    Collections.addAll(servicesReports, service);
   }
 }

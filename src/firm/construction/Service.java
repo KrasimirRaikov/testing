@@ -3,6 +3,7 @@ package firm.construction;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -22,7 +23,7 @@ public class Service {
   }
 
   public void addMaterial(Material... material) {
-    materials.addAll(Arrays.asList(material));
+    Collections.addAll(materials, material);
   }
 
   public void addLabour(Labour... labour) {
@@ -52,21 +53,21 @@ public class Service {
   }
 
   @Override
-  public boolean equals(Object obj){
+  public boolean equals(Object obj) {
     if (!(obj instanceof Service)) return false;
-    Service that= (Service) obj;
+    Service that = (Service) obj;
     return this.serviceName.equals(that.getServiceName());
 
   }
 
   public String print() {
-    String result="";
-    String newLine=System.getProperty("line.separator");
-    for(Material material: materials){
-      result+=material.print()+newLine;
+    String result = "";
+    String newLine = System.getProperty("line.separator");
+    for (Material material : materials) {
+      result += material.print() + newLine;
     }
-    for (Labour work: labours){
-      result += work.print()+newLine;
+    for (Labour work : labours) {
+      result += work.print() + newLine;
     }
     return result;
   }
@@ -74,4 +75,15 @@ public class Service {
   public double getQuantity() {
     return quantity;
   }
+
+  public Material[] getMaterials() {
+    Object[] objs = materials.toArray();
+    Material[] mats = new Material[materials.size()];
+    for (int i = 0; i < materials.size(); i++) {
+      mats[i] = (Material) objs[i];
+    }
+    return mats;
+  }
+
+
 }

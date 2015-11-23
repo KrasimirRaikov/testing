@@ -56,6 +56,6 @@ public class MaterialTest {
   @Test
   public void printMaterial() {
     Material material = new Material("block", price, ts, vat);
-    assertThat(material.print(), is(equalTo("Material: "+material.getName()+" price: "+material.getPrice())));
+    assertThat(material.print(), is(equalTo("Material: " + material.getName() + " price: " + material.getPrice())));
   }
 }

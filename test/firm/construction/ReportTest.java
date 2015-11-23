@@ -20,4 +20,16 @@ public class ReportTest {
     report.addReport(service);
     assertThat(report.getTotalPrice(), is(equalTo(152.88)));
   }
+
+  @Test
+  public void addMaterialReport() {
+    Report report = new Report();
+    Service service = new Service("we");
+    service.addMaterial(new Material("ers", 2, 5, 5));
+    report.addReport(service);
+    Service service2 = new Service("we");
+    service2.addMaterial(new Material("ers", 10, 10, 10));
+    report.addReport(service2);
+    assertThat(report.getTotalPrice(), is(equalTo(14.31)));
+  }
 }

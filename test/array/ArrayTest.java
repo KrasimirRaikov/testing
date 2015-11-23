@@ -13,8 +13,8 @@ import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.Collection;
 
-import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.*;
 
 /**

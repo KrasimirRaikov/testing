@@ -11,11 +11,7 @@ public class Material {
   private double vat = 20;
   private double transportStorage = 5;
   private double originalPrice;
-  private double quantity=1;
-
-  public Material(String name) {
-    this.name = name;
-  }
+  private double quantity = 1;
 
   public Material(String name, double price, double transportStorage, double vat) {
 
@@ -26,14 +22,14 @@ public class Material {
   }
 
   public double getPrice() {
-    price = originalPrice * (vat * 0.01 + 1) * (transportStorage * 0.01 + 1)*quantity;
+    price = originalPrice * (vat * 0.01 + 1) * (transportStorage * 0.01 + 1) * quantity;
     DecimalFormat df = new DecimalFormat("0.00");
     return Double.valueOf(df.format(price));
   }
 
   public void setPrice(double price) {
     originalPrice = price;
-    this.price = price * (vat * 0.01 + 1) * (transportStorage * 0.01 + 1);
+    this.price = price * (vat * 0.01 + 1) * (transportStorage * 0.01 + 1) * quantity;
   }
 
   public void setVat(double vat) {
@@ -60,7 +56,9 @@ public class Material {
     return name;
   }
 
+
   public String print() {
-    return "Material: "+name+" price: "+getPrice();
+    return "Material: " + name + " price: " + getPrice();
   }
+
 }
