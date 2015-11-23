@@ -1,6 +1,7 @@
 package firm.construction;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -19,12 +20,12 @@ public class Service {
     this.serviceName = serviceName;
   }
 
-  public void addMaterial(Material material) {
-    materials.add(material);
+  public void addMaterial(Material... material) {
+    materials.addAll(Arrays.asList(material));
   }
 
-  public void addLabour(Labour labour) {
-    labours.add(labour);
+  public void addLabour(Labour... labour) {
+    labours.addAll(Arrays.asList(labour));
   }
 
   public double getPrice() {
