@@ -14,6 +14,7 @@ public class Labour {
   private double quantity = 1;
 
   public Labour(String name, double price, double taxes, double mechanisation) {
+    this.name = name;
     this.originalPrice = price;
     this.taxes = taxes;
     this.mechanisation = mechanisation;
@@ -32,6 +33,7 @@ public class Labour {
     this.originalPrice = price;
 
   }
+
 
   public double getPrice() {
     double price = originalPrice * (mechanisation * 0.01 + 1) * (taxes * 0.01 + 1) * quantity;

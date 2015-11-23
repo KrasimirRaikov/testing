@@ -21,6 +21,14 @@ public class Material {
     this.vat = vat;
   }
 
+  public Material(String name, double price, double transportStorage, double vat, double quantity) {
+    this.name = name;
+    this.vat = vat;
+    this.transportStorage = transportStorage;
+    this.originalPrice = price;
+    this.quantity = quantity;
+  }
+
   public double getPrice() {
     price = originalPrice * (vat * 0.01 + 1) * (transportStorage * 0.01 + 1) * quantity;
     DecimalFormat df = new DecimalFormat("0.00");

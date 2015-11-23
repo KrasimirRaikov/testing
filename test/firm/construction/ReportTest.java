@@ -32,4 +32,16 @@ public class ReportTest {
     report.addReport(service2);
     assertThat(report.getTotalPrice(), is(equalTo(14.31)));
   }
+
+  @Test
+  public void addLabourReport(){
+    Report report = new Report();
+    Service service = new Service("i");
+    service.addLabour(new Labour("43", 42, 4, 2));
+    report.addReport(service);
+    Service service2 = new Service("i");
+    service2.addLabour(new Labour("43", 29, 23, 5));
+    report.addReport(service2);
+    assertThat(report.getTotalPrice(), is(equalTo(82.0)));
+  }
 }

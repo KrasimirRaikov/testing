@@ -53,8 +53,8 @@ public class ServiceTest {
     service.addLabour(new Labour("req", 42, 65, 42));
     service.addLabour(new Labour("rew", 23, 42, 23));
     assertThat(service.print(), is(equalTo("Material: gtre price: 36.34" + newLine +
-            "labour: null price: 98.41 quantity: 1.0" + newLine +
-            "labour: null price: 40.17 quantity: 1.0" + newLine)));
+            "labour: req price: 98.41 quantity: 1.0" + newLine +
+            "labour: rew price: 40.17 quantity: 1.0" + newLine)));
   }
 
 }

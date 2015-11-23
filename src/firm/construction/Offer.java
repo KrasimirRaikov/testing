@@ -32,11 +32,15 @@ public class Offer {
   }
 
   public String printOffer() {
-    String massage = "";
+    String message = "";
     String separator = System.getProperty("line.separator");
     for (Service service : services) {
-      massage += service.getServiceName() + " quantity:" + service.getQuantity() + " price:" + service.getPrice() + separator;
+      message += service.getServiceName() + " quantity:" + service.getQuantity() + " price:" + service.getPrice() + separator;
     }
-    return massage;
+    return message;
+  }
+
+  public Service find(Service service) {
+    return services.get(services.indexOf(service));
   }
 }

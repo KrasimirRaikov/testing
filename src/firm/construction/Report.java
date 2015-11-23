@@ -24,4 +24,13 @@ public class Report {
   public void addReport(Service... service) {
     Collections.addAll(servicesReports, service);
   }
+
+  public Service[] getServices() {
+    Object[] objs= servicesReports.toArray();
+    Service[] services= new Service[servicesReports.size()];
+    for (int i = 0; i < servicesReports.size(); i++) {
+      services[i] = (Service) objs[i];
+    }
+    return services;
+  }
 }
