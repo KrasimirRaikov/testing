@@ -41,22 +41,20 @@ public class Report {
   }
 
   public Service[] getServices() {
-    Object[] objs= servicesReport.toArray();
-    Service[] services= new Service[servicesReport.size()];
-    for (int i = 0; i < servicesReport.size(); i++) {
-      services[i] = (Service) objs[i];
-    }
-    return services;
+    return getServiceArray(servicesReport);
+
   }
 
   public Service[] getConciseServices() {
-    Object[] objs= conciseReport.toArray();
-    Service[] services= new Service[objs.length];
-    for (int i = 0; i < objs.length; i++) {
-      services[i] = (Service) objs[i];
-    }
-    return services;
+    return getServiceArray(conciseReport);
   }
 
-
+  public Service[] getServiceArray(List<Service> services){
+    Object[] objs= services.toArray();
+    Service[] servicess= new Service[services.size()];
+    for (int i = 0; i < services.size(); i++) {
+      servicess[i] = (Service) objs[i];
+    }
+    return servicess;
+  }
 }
