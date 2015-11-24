@@ -86,4 +86,12 @@ public class Service {
   }
 
 
+  public Labour[] getLabours() {
+    Object[] objs= labours.toArray();
+    Labour[] labs= new Labour[labours.size()];
+    for (int i=0; i< labours.size(); i++){
+      labs[i] = (Labour) objs[i];
+    }
+    return labs;
+  }
 }

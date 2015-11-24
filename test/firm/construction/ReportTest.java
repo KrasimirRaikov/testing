@@ -44,4 +44,6 @@ public class ReportTest {
     report.addReport(service2);
     assertThat(report.getTotalPrice(), is(equalTo(82.0)));
   }
+
+
 }

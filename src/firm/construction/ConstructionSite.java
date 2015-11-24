@@ -12,7 +12,7 @@ public class ConstructionSite {
     this.name = name;
   }
 
-  public String offerReport() {
+  public String statusReport() {
     String message = "";
     String separator= System.getProperty("line.separator");
     for(Service service: report.getServices()){
@@ -32,5 +32,18 @@ public class ConstructionSite {
 
   public void addToReport(Service service) {
     report.addReport(service);
+  }
+
+  public String conciseStatusReport() {
+    String message = "";
+    String separator= System.getProperty("line.separator");
+    for(Service service: report.getConciseServices()){
+      Service offeredService = offer.find(service);
+      message+= name+" service:"+offeredService.getServiceName()+" quantity:"+offeredService.getQuantity()+
+              " finishedQuantity:"+service.getQuantity()+" offeredPrice4ThatQuantity:"+
+              ((offeredService.getPrice()/offeredService.getQuantity())*service.getQuantity())+
+              " reportedPrice4ThatQuantity:"+service.getPrice()+separator;
+    }
+    return message;
   }
 }
