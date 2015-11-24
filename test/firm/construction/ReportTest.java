@@ -42,7 +42,9 @@ public class ReportTest {
     Service service2 = new Service("i");
     service2.addLabour(new Labour("43", 29, 23, 5));
     report.addReport(service2);
-    assertThat(report.getTotalPrice(), is(equalTo(82.0)));
+    service.setQuantity(2);
+    service2.setQuantity(2);
+    assertThat(report.getTotalPrice(), is(equalTo(164.0)));
   }
 
 

@@ -11,14 +11,10 @@ public class Material {
   private double vat = 20;
   private double transportStorage = 5;
   private double originalPrice;
-  private double quantity = 1;
+  private double quantity;
 
   public Material(String name, double price, double transportStorage, double vat) {
-
-    this.name = name;
-    this.originalPrice = price;
-    this.transportStorage = transportStorage;
-    this.vat = vat;
+    this(name, price, transportStorage, vat, 1);
   }
 
   public Material(String name, double price, double transportStorage, double vat, double quantity) {
