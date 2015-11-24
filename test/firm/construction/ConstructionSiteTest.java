@@ -57,7 +57,7 @@ public class ConstructionSiteTest {
   }
 
   @Test
-  public void getConsturctionSiteOffer() {
+  public void getConstructionSiteOffer() {
     ConstructionSite cs= new ConstructionSite("trv");
     Service service= new Service("ert");
     service.addLabour(new Labour("ont", 23, 10, 10));
@@ -66,5 +66,7 @@ public class ConstructionSiteTest {
     cs.addToOffer(service);
     assertThat(cs.getOffer().printOffer(), is(equalTo("ert quantity:2.0 price:70.06"+System.getProperty("line.separator"))));
   }
+
+
 
 }
