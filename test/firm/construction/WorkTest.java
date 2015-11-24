@@ -27,7 +27,7 @@ public class WorkTest {
   @Parameters
   public static Collection<Object[]> params() {
     return Arrays.asList(new Object[][]{
-            {2.45, 5, 45, 3.73}, {10, 5, 40, 14.70}, {53, 21, 34, 85.93}
+            {2.45, 5, 45, 3.73}, {10, 5, 40, 14.70}, {53, 21, 34, 85.93}, {10, 10, 10, 12.1}
     });
   }
 

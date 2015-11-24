@@ -22,7 +22,7 @@ public class MaterialTest {
   @Parameters
   public static Collection<Object[]> params() {
     return Arrays.asList(new Object[][]{
-            {10, 20, 20, 26.40}, {5, 7, 13, 14.61}, {19, 52, 2, 3.62}
+            {10, 20, 20, 26.40}, {5, 7, 13, 14.61}, {19, 52, 2, 3.62}, {10, 10, 10, 12.1}
     });
   }
 
