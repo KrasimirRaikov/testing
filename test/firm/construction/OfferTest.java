@@ -27,7 +27,7 @@ public class OfferTest {
   }
 
   @Test
-  public void offerGetSpecificServicePrice() {
+  public void offerGetSpecificServicesPrice() {
     Offer offer = new Offer();
     Service service = new Service("rt");
     service.addLabour(new Labour("htre", 42, 12, 42));

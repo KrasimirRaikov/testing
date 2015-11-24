@@ -56,4 +56,15 @@ public class ConstructionSiteTest {
             " offeredPrice4ThatQuantity:286.75 reportedPrice4ThatQuantity:535.55"+System.getProperty("line.separator"))));
   }
 
+  @Test
+  public void getConsturctionSiteOffer() {
+    ConstructionSite cs= new ConstructionSite("trv");
+    Service service= new Service("ert");
+    service.addLabour(new Labour("ont", 23, 10, 10));
+    service.setQuantity(2);
+    service.addMaterial(new Material("oiu", 5, 20, 20));
+    cs.addToOffer(service);
+    assertThat(cs.getOffer().printOffer(), is(equalTo("ert quantity:2.0 price:70.06"+System.getProperty("line.separator"))));
+  }
+
 }

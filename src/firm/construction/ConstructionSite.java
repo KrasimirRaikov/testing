@@ -41,4 +41,8 @@ public class ConstructionSite {
     }
     return message;
   }
+
+  public Offer getOffer() {
+    return offer1;
+  }
 }
