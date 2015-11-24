@@ -11,13 +11,10 @@ public class Labour {
   private double taxes = 40;
   private double mechanisation = 5;
   private double originalPrice;
-  private double quantity = 1;
+  private double quantity;
 
   public Labour(String name, double price, double taxes, double mechanisation) {
-    this.name = name;
-    this.originalPrice = price;
-    this.taxes = taxes;
-    this.mechanisation = mechanisation;
+    this(name, price, taxes, mechanisation, 1);
   }
 
   public Labour(String name, double price, double taxes, double mechanisation, double quantity) {
