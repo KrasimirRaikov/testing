@@ -7,7 +7,7 @@ import java.util.List;
  */
 public class ConstructionSite {
   private String name;
-  private Offer offer1 = new Offer();
+  private Offer offer = new Offer();
   private Report report = new Report();
 
   /**
@@ -34,7 +34,7 @@ public class ConstructionSite {
    * @param service the service to be added to the offer
    */
   public void addToOffer(Service service) {
-    offer1.addToOffer(service);
+    offer.addToOffer(service);
   }
 
   /**
@@ -62,7 +62,7 @@ public class ConstructionSite {
    * @return a Status on the services
    */
   private Status reportStatus(List<Service> services) {
-    return new Status(offer1, services);
+    return new Status(offer, services);
   }
 
   /**
@@ -71,6 +71,6 @@ public class ConstructionSite {
    * @return the Offer
    */
   public Offer getOffer() {
-    return offer1;
+    return offer;
   }
 }
