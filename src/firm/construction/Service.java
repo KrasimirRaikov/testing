@@ -11,24 +11,37 @@ import java.util.List;
  */
 public class Service {
 
+
   private double price;
   private List<Material> materials = new ArrayList<>();
-  private List<Labour> labours = new ArrayList<>();
-  private double quantity = 1;
+  private List<Employe> employes = new ArrayList<>();
+  private double quantity;
   private String serviceName;
 
   /**
-   * Constructor of Service class
+   * Common Constructor of Service class that calls more concrete one
    *
    * @param serviceName the name of the service
    */
   public Service(String serviceName) {
 
-    this.serviceName = serviceName;
+    this(serviceName, 1);
   }
 
   /**
-   * adds a material to a List of needed materials for the completion of the service
+   * More concrete constructor for the Service class
+   *
+   * @param serviceName the name of the service
+   * @param quantity    the quantity of the service
+   */
+  public Service(String serviceName, double quantity) {
+
+    this.serviceName = serviceName;
+    this.quantity = quantity;
+  }
+
+  /**
+   * Adds a material to a List of needed materials for the completion of the service
    *
    * @param material the material
    */
@@ -37,16 +50,16 @@ public class Service {
   }
 
   /**
-   * adds a labour to a List of needed labours for the completion of the service
+   * Adds a employe to a List of needed employes for the completion of the service
    *
-   * @param labour the labour
+   * @param employe the employe
    */
-  public void addLabour(Labour... labour) {
-    labours.addAll(Arrays.asList(labour));
+  public void addLabour(Employe... employe) {
+    employes.addAll(Arrays.asList(employe));
   }
 
   /**
-   * calculates the price of the entire service
+   * Calculates the price of the entire service
    *
    * @return the price
    */
@@ -55,7 +68,7 @@ public class Service {
     for (Material material : materials) {
       sum += material.getPrice();
     }
-    for (Labour l : labours) {
+    for (Employe l : employes) {
       sum += l.getPrice();
     }
     price = sum * quantity;
@@ -63,27 +76,18 @@ public class Service {
     return Double.valueOf(df.format(price));
   }
 
-  /**
-   * sets the quantity of the service
-   *
-   * @param quantity the quantity
-   */
-  public void setQuantity(double quantity) {
-    this.quantity = quantity;
-    this.price = getPrice() * quantity;
-  }
 
   /**
-   * gets the name of the service
+   * Gets the name of the service
    *
-   * @return returns the name of the service
+   * @return the name of the service
    */
   public String getServiceName() {
     return serviceName;
   }
 
   /**
-   * overrides the equals method so that the services equal the ones with the same name
+   * Overrides the equals method so that the services equal the ones with the same name
    *
    * @param obj the object to be compared to tha service
    * @return true if the object is service and it's name is equal to the name of the current service and false otherwise
@@ -97,7 +101,7 @@ public class Service {
   }
 
   /**
-   * gets a string representation of the service ready to be printed and return it
+   * Gets a string representation of the service ready to be printed and return it
    *
    * @return return's the string representation of the service
    */
@@ -107,14 +111,14 @@ public class Service {
     for (Material material : materials) {
       result += material.print() + newLine;
     }
-    for (Labour work : labours) {
+    for (Employe work : employes) {
       result += work.print() + newLine;
     }
     return result;
   }
 
   /**
-   * gets the quantity of the service
+   * Gets the quantity of the service
    *
    * @return returns the quantity of the service
    */
@@ -123,7 +127,7 @@ public class Service {
   }
 
   /**
-   * gets the materials List as an array of materials
+   * Gets the materials List as an array of materials
    *
    * @return the array of materials
    */
@@ -138,15 +142,15 @@ public class Service {
 
 
   /**
-   * gets the labours List as an array of labours
+   * Gets the employes List as an array of employes
    *
-   * @return the array of labours
+   * @return the array of employes
    */
-  public Labour[] getLabours() {
-    Object[] objs = labours.toArray();
-    Labour[] labs = new Labour[labours.size()];
-    for (int i = 0; i < labours.size(); i++) {
-      labs[i] = (Labour) objs[i];
+  public Employe[] getEmployes() {
+    Object[] objs = employes.toArray();
+    Employe[] labs = new Employe[employes.size()];
+    for (int i = 0; i < employes.size(); i++) {
+      labs[i] = (Employe) objs[i];
     }
     return labs;
   }

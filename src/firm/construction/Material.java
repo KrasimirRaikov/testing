@@ -1,13 +1,10 @@
 package firm.construction;
 
-import java.text.DecimalFormat;
-
 /**
  * @author raikov.krasimir@gmail.com (Krasimir Raikov)
  */
 public class Material {
   private String name;
-  private double price;
   private double vat = 20;
   private double transportStorage = 5;
   private double originalPrice;
@@ -26,7 +23,7 @@ public class Material {
   }
 
   /**
-   * more concrete constructor
+   * More concrete constructor
    *
    * @param name             the name of the material
    * @param price            the price of the material
@@ -43,43 +40,18 @@ public class Material {
   }
 
   /**
-   * calculates the price for the material
+   * Calculates the price for the material
    *
    * @return the price
    */
   public double getPrice() {
-    price = originalPrice * (vat * 0.01 + 1) * (transportStorage * 0.01 + 1) * quantity;
-    DecimalFormat df = new DecimalFormat("0.00");
-    return Double.valueOf(df.format(price));
-  }
-
-  /**
-   * sets the original price of the material before the calculation of the new value
-   *
-   * @param price the price
-   */
-  public void setPrice(double price) {
-    originalPrice = price;
-    this.price = price * (vat * 0.01 + 1) * (transportStorage * 0.01 + 1) * quantity;
+    double price = originalPrice * (vat * 0.01 + 1) * (transportStorage * 0.01 + 1) * quantity;
+    return price;
   }
 
 
-
-
-
-
-
   /**
-   * sets the value for the quantity field of the material
-   *
-   * @param quantity the quantity
-   */
-  public void setQuantity(double quantity) {
-    this.quantity = quantity;
-  }
-
-  /**
-   * gets the name of the material
+   * Gets the name of the material
    *
    * @return the name of the material
    */
@@ -88,7 +60,7 @@ public class Material {
   }
 
   /**
-   * gets a string representing the material ready for print and returns it
+   * Gets a string representing the material ready for print and returns it
    *
    * @return the material ready for print
    */

@@ -12,6 +12,7 @@ import java.util.Collection;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static org.hamcrest.number.IsCloseTo.closeTo;
 
 /**
  * @author raikov.krasimir@gmail.com (Krasimir Raikov)
@@ -41,31 +42,22 @@ public class WorkTest {
 
   @Test
   public void workPriceCalculation() {
-    Labour work = new Labour("gheui", price, taxes, mechanisation);
-    assertThat(work.getPrice(), is(equalTo(result)));
+    Employe work = new Employe("gheui", price, taxes, mechanisation);
+    assertThat(work.getPrice(), is(closeTo(result, 0.01)));
   }
 
   @Test
   public void workPriceQuantityCalculation() {
-    Labour work = new Labour("dsf", price, taxes, mechanisation, 2.5);
+    Employe work = new Employe("dsf", price, taxes, mechanisation, 2.5);
     DecimalFormat df = new DecimalFormat("0.00");
     double res = Double.valueOf(df.format(price * (taxes * 0.01 + 1) * (mechanisation * 0.01 + 1) * 2.5));
-    assertThat(work.getPrice(), is(equalTo(res)));
+    assertThat(work.getPrice(), is(closeTo(res, 0.01)));
   }
 
   @Test
-  public void workSetPrice(){
-    Labour work = new Labour("dsf", price, taxes, mechanisation);
-    work.setPrice(price*2);
-    DecimalFormat df = new DecimalFormat("0.00");
-    double res = Double.valueOf(df.format(2*price * (taxes * 0.01 + 1) * (mechanisation * 0.01 + 1)));
-    assertThat(work.getPrice(), is(equalTo(res)));
-  }
-
-  @Test
-  public void printLabour(){
-    Labour work= new Labour("fdijoreg", price, taxes, mechanisation, 4);
-    assertThat(work.print(), is(equalTo("labour: "+work.getName()+" price: "+work.getPrice()+" quantity: "+ work.getQuantity())));
+  public void printLabour() {
+    Employe work = new Employe("fdijoreg", price, taxes, mechanisation, 4);
+    assertThat(work.print(), is(equalTo("labour: " + work.getName() + " price: " + work.getPrice() + " quantity: " + work.getQuantity())));
   }
 
 }

@@ -1,6 +1,5 @@
 package firm.construction;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -13,16 +12,16 @@ public class Offer {
   private List<Service> services = new ArrayList<>();
 
   /**
-   * adds services to a List which represent the offer
+   * Adds services to a List which represents the offer
    *
    * @param servicess the services to be added
    */
-  public void makeOffer(Service... servicess) {
+  public void addToOffer(Service... servicess) {
     Collections.addAll(services, servicess);
   }
 
   /**
-   * gets the total price of the offer
+   * Calculates the total price of the offer
    *
    * @return the total price
    */
@@ -31,24 +30,22 @@ public class Offer {
     for (Service service : services) {
       sum += service.getPrice();
     }
-    DecimalFormat df = new DecimalFormat("0.00");
-    return Double.valueOf(df.format(sum));
+    return sum;
   }
 
 
   /**
-   * get's the price of a single service
+   * Get's the price of a single service
    *
    * @param serviceName the name of the service
    * @return the price of the service
    */
   public double getServicePrice(String serviceName) {
-    DecimalFormat df = new DecimalFormat("0.00");
-    return Double.valueOf(df.format(services.get(services.indexOf(new Service(serviceName))).getPrice()));
+    return services.get(services.indexOf(new Service(serviceName))).getPrice();
   }
 
   /**
-   * gets the entire offer ready for printing
+   * Gets the entire offer ready for printing
    *
    * @return a string which is the offer
    */
@@ -62,7 +59,7 @@ public class Offer {
   }
 
   /**
-   * finds and returns a service
+   * Finds and returns a service
    *
    * @param service to be searched for
    * @return the service

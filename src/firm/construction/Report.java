@@ -1,6 +1,5 @@
 package firm.construction;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -23,64 +22,48 @@ public class Report {
     for (Service service : servicesReport) {
       sum += service.getPrice();
     }
-    DecimalFormat df = new DecimalFormat("0.00");
-    return Double.valueOf(df.format(sum));
+    return sum;
   }
 
   /**
-   * adds service to be used as a report for the progress
+   * Adds service to be used as a report for the progress
    *
    * @param service service or services to be added to the report
    */
-  public void addReport(Service... service) {
+  public void addToReport(Service... service) {
     Collections.addAll(servicesReport, service);
     for (Service oneService : service) {
       if (conciseReport.contains(oneService)) {
         int index = conciseReport.indexOf(oneService);
         Service originReport = conciseReport.get(index);
-        Service service1 = new Service(originReport.getServiceName());
-        service1.addLabour(originReport.getLabours());
+        Service service1 = new Service(originReport.getServiceName(), originReport.getQuantity() + oneService.getQuantity());
+        service1.addLabour(originReport.getEmployes());
         service1.addMaterial(originReport.getMaterials());
-        service1.addLabour(oneService.getLabours());
+        service1.addLabour(oneService.getEmployes());
         service1.addMaterial(oneService.getMaterials());
-        service1.setQuantity(originReport.getQuantity() + oneService.getQuantity());
         conciseReport.set(index, service1);
       } else conciseReport.add(oneService);
     }
   }
 
-
   /**
-   * turns the List of services into an array of services
+   * Getter for the services report
    *
-   * @return the array of services
+   * @return the services report
    */
-  public Service[] getServices() {
-    return getServiceArray(servicesReport);
+  public List<Service> getServices() {
+    return servicesReport;
 
   }
 
   /**
-   * turns the List of concise reported services into an array of those services
+   * Getter for the concise services report
    *
-   * @return the array of concise services
+   * @return the concise services report
    */
-  public Service[] getConciseServices() {
-    return getServiceArray(conciseReport);
+  public List<Service> getConciseServices() {
+    return conciseReport;
   }
 
-  /**
-   * turn a List of services into an array of services
-   *
-   * @param services the List to be transformed
-   * @return the array of services
-   */
-  public Service[] getServiceArray(List<Service> services) {
-    Object[] objs = services.toArray();
-    Service[] servicess = new Service[services.size()];
-    for (int i = 0; i < services.size(); i++) {
-      servicess[i] = (Service) objs[i];
-    }
-    return servicess;
-  }
+
 }
