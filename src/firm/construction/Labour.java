@@ -65,32 +65,6 @@ public class Labour {
     return Double.valueOf(df.format(price));
   }
 
-  /**
-   * sets the mechanisation percent of the labour
-   *
-   * @param mechanisation the mechanisation percent
-   */
-  public void setMechanisation(double mechanisation) {
-    this.mechanisation = mechanisation;
-  }
-
-  /**
-   * sets the taxes of the labour
-   *
-   * @param taxes the taxes of the labour
-   */
-  public void setTaxes(double taxes) {
-    this.taxes = taxes;
-  }
-
-  /**
-   * sets the quantity of the labour needed for specific service
-   *
-   * @param quantity the quantity of the labour
-   */
-  public void setQuantity(double quantity) {
-    this.quantity = quantity;
-  }
 
   /**
    * gets the name of the labour

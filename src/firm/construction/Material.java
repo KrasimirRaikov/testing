@@ -63,41 +63,11 @@ public class Material {
     this.price = price * (vat * 0.01 + 1) * (transportStorage * 0.01 + 1) * quantity;
   }
 
-  /**
-   * sets the vat field
-   *
-   * @param vat the value added tax(vat) field
-   */
-  public void setVat(double vat) {
-    this.vat = vat;
-  }
 
-  /**
-   * sets the transport and storage percent fee field
-   *
-   * @param transportStorage the transport and storage percent fee
-   */
-  public void setTransportStorage(double transportStorage) {
-    this.transportStorage = transportStorage;
-  }
 
-  /**
-   * gets the value added tax percent
-   *
-   * @return the vat percent
-   */
-  public double getVat() {
-    return vat;
-  }
 
-  /**
-   * gets the transport and storage percent fee
-   *
-   * @return transportStorage percent
-   */
-  public double getTransportStorage() {
-    return transportStorage;
-  }
+
+
 
   /**
    * sets the value for the quantity field of the material

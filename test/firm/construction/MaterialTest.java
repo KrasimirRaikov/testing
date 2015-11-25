@@ -54,6 +54,15 @@ public class MaterialTest {
   }
 
   @Test
+  public void materialSetPrice(){
+    Material material = new Material("bricks", price, ts, vat);
+    material.setPrice(price*2);
+    DecimalFormat df = new DecimalFormat("0.00");
+    double res= Double.valueOf(df.format(2*price * (ts * 0.01 + 1) * (vat * 0.01 + 1)));
+    assertThat(material.getPrice(), is(equalTo(res)));
+  }
+
+  @Test
   public void printMaterial() {
     Material material = new Material("block", price, ts, vat);
     assertThat(material.print(), is(equalTo("Material: " + material.getName() + " price: " + material.getPrice())));

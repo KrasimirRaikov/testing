@@ -54,6 +54,15 @@ public class WorkTest {
   }
 
   @Test
+  public void workSetPrice(){
+    Labour work = new Labour("dsf", price, taxes, mechanisation);
+    work.setPrice(price*2);
+    DecimalFormat df = new DecimalFormat("0.00");
+    double res = Double.valueOf(df.format(2*price * (taxes * 0.01 + 1) * (mechanisation * 0.01 + 1)));
+    assertThat(work.getPrice(), is(equalTo(res)));
+  }
+
+  @Test
   public void printLabour(){
     Labour work= new Labour("fdijoreg", price, taxes, mechanisation, 4);
     assertThat(work.print(), is(equalTo("labour: "+work.getName()+" price: "+work.getPrice()+" quantity: "+ work.getQuantity())));
