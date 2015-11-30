@@ -12,7 +12,7 @@ import static org.hamcrest.number.IsCloseTo.closeTo;
 public class ConstructionFirmTest {
 
   @Test
-  public void offer() {
+  public void offerPrice() {
     PriceList priceList= new PriceList(new Service("painting", 2.5, Measure.SQUARE_METER));
     ConstructionFirm company= new ConstructionFirm(priceList);
     ConstructionSite store= new ConstructionSite("Store",new Requirement("painting", 100, Measure.SQUARE_METER));

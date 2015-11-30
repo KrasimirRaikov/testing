@@ -14,7 +14,7 @@ public class ConstructionFirm {
   public Offer createOffer(ConstructionSite store) {
     double sum=0;
     for(Requirement requirement : store.getRequirements()){
-      sum+=requirement.getQuantity()*priceList.findService(requirement.getName()).getPrice();
+      sum+=requirement.getQuantity()*priceList.findService(requirement.getName(), requirement.getMeasure()).getPrice();
     }
     return new Offer(sum);
   }

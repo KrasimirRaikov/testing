@@ -14,7 +14,7 @@ public class PriceList {
     Collections.addAll(services,service);
   }
 
-  public Service findService(String name) {
-    return services.get(services.indexOf(new Service(name, 0, Measure.SQUARE_METER)));
+  public Service findService(String name, Measure measure) {
+    return services.get(services.indexOf(new Service(name, 0, measure)));
   }
 }

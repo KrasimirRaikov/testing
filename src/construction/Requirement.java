@@ -21,4 +21,8 @@ public class Requirement {
   public double getQuantity() {
     return quantity;
   }
+
+  public Measure getMeasure() {
+    return measure;
+  }
 }
