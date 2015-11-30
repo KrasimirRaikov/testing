@@ -1,5 +1,8 @@
 package construction;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author raikov.krasimir@gmail.com (Krasimir Raikov)
  */
@@ -13,9 +16,10 @@ public class ConstructionFirm {
 
   public Offer createOffer(ConstructionSite store) {
     double sum=0;
+    List<Service> services= new ArrayList<>();
     for(Requirement requirement : store.getRequirements()){
-      sum+=requirement.getQuantity()*priceList.findService(requirement.getName(), requirement.getMeasure()).getPrice();
+      services.add(priceList.findService(requirement.getName(), requirement.getMeasure()));
     }
-    return new Offer(sum);
+    return new Offer(store.getRequirements(), services);
   }
 }
