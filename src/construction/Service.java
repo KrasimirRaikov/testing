@@ -9,7 +9,7 @@ import java.util.List;
 public class Service {
   private final String name;
   private List<Material> materials= new ArrayList<>();
-  private List<Position> positions= new ArrayList<>();
+  private List<Work> works = new ArrayList<>();
   private final double price;
   private final Measure measure;
 
@@ -19,18 +19,18 @@ public class Service {
     this.measure = measure;
   }
 
-  public Service(String name, List<Material> materials, List<Position> positions, Measure measure) {
+  public Service(String name, List<Material> materials, List<Work> works, Measure measure) {
     this.name=name;
     this.materials=materials;
-    this.positions= positions;
+    this.works = works;
     this.price=materialsPrice()+positionsPrice();
     this.measure= measure;
   }
 
   private double positionsPrice() {
     double sum= 0;
-    for(Position position: positions){
-      sum+=position.getPrice();
+    for(Work work : works){
+      sum+= work.getPrice();
     }
     return sum;
   }

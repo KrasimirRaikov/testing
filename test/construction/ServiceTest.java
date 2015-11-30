@@ -1,5 +1,7 @@
 package construction;
 
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Multimap;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -42,10 +44,11 @@ public class ServiceTest {
   @Test
   public void detailedServicePricing(){
     List<Material> materials=new ArrayList<>();
-    List<Position> positions= new ArrayList<>();
+    List<Work> works = new ArrayList<>();
     materials.add(new Material("paint", materialPrice, Measure.SQUARE_METER));
-    positions.add(new Position("painter", positionPrice, Measure.SQUARE_METER));
-    Service painting= new Service("painting", materials, positions, Measure.SQUARE_METER);
+    works.add(new Work("painter", positionPrice, Measure.SQUARE_METER));
+    Multimap<Work, Material> multi= ArrayListMultimap.create();
+    Service painting= new Service("painting", materials, works, Measure.SQUARE_METER);
     assertThat(painting.getPrice(), is(closeTo(servicePrice, 0.1)));
   }
 }
