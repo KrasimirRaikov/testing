@@ -1,46 +1,22 @@
 package construction;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
  * @author raikov.krasimir@gmail.com (Krasimir Raikov)
  */
 public class ConstructionSite {
+  private final String name;
+  private final List<Requirement> requirements= new ArrayList<>();
 
-  private List<Service> reports= new ArrayList<>();
-  private List<Service> project = new ArrayList<>();
-
-  public ConstructionSite(String name) {
+  public ConstructionSite(String name, Requirement... requirement) {
+    this.name = name;
+    Collections.addAll(requirements,requirement);
   }
 
-  public double getProfit() {
-    return projectPrice()-expenses();
-  }
-
-  private double projectPrice() {
-    double result=0;
-
-    for (Service service: project){
-      result+=service.getQuantifiedPrice();
-    }
-    return result;
-  }
-
-  private double expenses() {
-    double result=0;
-
-    for (Service service: reports){
-      result+=service.getQuantifiedPrice();
-    }
-    return result;
-  }
-
-  public void report(Service service) {
-    reports.add(service);
-  }
-
-  public void addToProject(Service service) {
-    project.add(service);
+  public List<Requirement> getRequirements() {
+    return requirements;
   }
 }
