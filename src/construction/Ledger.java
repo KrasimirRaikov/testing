@@ -8,10 +8,16 @@ import java.util.List;
  */
 public class Ledger {
   private ConstructionSite site;
+  private Offer offer;
   private List<Report> reports= new ArrayList<>();
 
   public Ledger(ConstructionSite site) {
     this.site = site;
+  }
+
+  public Ledger(ConstructionSite site, Offer offer) {
+    this.site = site;
+    this.offer = offer;
   }
 
   public double price() {
@@ -24,5 +30,9 @@ public class Ledger {
 
   public void report(Report serviceReport) {
     reports.add(serviceReport);
+  }
+
+  public double profit() {
+    return offer.price()-price();
   }
 }

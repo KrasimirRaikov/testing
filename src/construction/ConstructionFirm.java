@@ -23,7 +23,11 @@ public class ConstructionFirm {
     return new Offer(site, services);
   }
 
-  public Ledger createReport(ConstructionSite site) {
+  public Ledger createLedger(ConstructionSite site) {
     return new Ledger(site);
+  }
+
+  public Ledger createLedger(ConstructionSite site, Offer offer) {
+    return new Ledger(site, offer);
   }
 }

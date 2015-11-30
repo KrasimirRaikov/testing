@@ -32,14 +32,27 @@ public class ConstructionFirmTest {
   }
 
   @Test
-  public void ledgerPrice() {
-    PriceList priceList= new PriceList(new Service("tiling", 16.5, Measure.SQUARE_METER));
+  public void ledgerCosts() {
+    PriceList priceList= new PriceList();
     ConstructionFirm company = new ConstructionFirm(priceList);
     ConstructionSite office= new ConstructionSite("office 12", new Requirement("tiling", 5, Measure.SQUARE_METER));
 
-    Ledger ledger = company.createReport(office);
+    Ledger ledger = company.createLedger(office);
     ledger.report(new Report("tiling", 3, 16, Measure.SQUARE_METER));
     ledger.report(new Report("tiling", 2, 15, Measure.SQUARE_METER));
     assertThat(ledger.price(), is(closeTo(78, 0.1)));
+  }
+
+  @Test
+  public void profit(){
+    PriceList priceList= new PriceList(new Service("painting", 1.5, Measure.SQUARE_METER));
+    ConstructionFirm company= new ConstructionFirm(priceList);
+    ConstructionSite warehouse= new ConstructionSite("warehouse 13", new Requirement("painting", 250, Measure.SQUARE_METER));
+
+    Offer offer= company.createOffer(warehouse);
+    Ledger ledger= company.createLedger(warehouse, offer);
+    ledger.report(new Report("painting", 250, 1, Measure.SQUARE_METER));
+
+    assertThat(ledger.profit(), is(closeTo(125, 0.1)));
   }
 }
