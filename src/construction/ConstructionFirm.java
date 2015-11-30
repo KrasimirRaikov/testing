@@ -14,12 +14,16 @@ public class ConstructionFirm {
     this.priceList = priceList;
   }
 
-  public Offer createOffer(ConstructionSite store) {
+  public Offer createOffer(ConstructionSite site) {
     double sum=0;
     List<Service> services= new ArrayList<>();
-    for(Requirement requirement : store.getRequirements()){
+    for(Requirement requirement : site.getRequirements()){
       services.add(priceList.findService(requirement.getName(), requirement.getMeasure()));
     }
-    return new Offer(store.getRequirements(), services);
+    return new Offer(site, services);
+  }
+
+  public Ledger createReport(ConstructionSite site) {
+    return new Ledger(site);
   }
 }

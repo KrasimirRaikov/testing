@@ -32,12 +32,12 @@ public class ServiceTest {
   }
 
   private double materialPrice;
-  private double positionPrice;
+  private double workPrice;
   private double servicePrice;
 
-  public ServiceTest(double materialPrice, double positionPrice, double servicePrice){
+  public ServiceTest(double materialPrice, double workPrice, double servicePrice){
     this.materialPrice = materialPrice;
-    this.positionPrice = positionPrice;
+    this.workPrice = workPrice;
     this.servicePrice = servicePrice;
   }
 
@@ -46,7 +46,7 @@ public class ServiceTest {
     List<Material> materials=new ArrayList<>();
     List<Work> works = new ArrayList<>();
     materials.add(new Material("paint", materialPrice, Measure.SQUARE_METER));
-    works.add(new Work("painter", positionPrice, Measure.SQUARE_METER));
+    works.add(new Work("painting  ", workPrice, Measure.SQUARE_METER));
     Multimap<Work, Material> multi= ArrayListMultimap.create();
     Service painting= new Service("painting", materials, works, Measure.SQUARE_METER);
     assertThat(painting.getPrice(), is(closeTo(servicePrice, 0.1)));
