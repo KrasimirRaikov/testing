@@ -6,8 +6,8 @@ package construction;
 public class Requirement {
   private final String name;
   private final double quantity;
-  private double transportStorage=0;
-  private double mechanisation=0;
+  private double transportStorage = 0;
+  private double mechanisation = 0;
   private final Measure measure;
 
   public Requirement(String name, double quantity, Measure measure) {

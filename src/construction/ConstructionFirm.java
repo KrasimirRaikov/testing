@@ -15,9 +15,9 @@ public class ConstructionFirm {
   }
 
   public Offer createOffer(ConstructionSite site) {
-    double sum=0;
-    List<Service> services= new ArrayList<>();
-    for(Requirement requirement : site.getRequirements()){
+    double sum = 0;
+    List<Service> services = new ArrayList<>();
+    for (Requirement requirement : site.getRequirements()) {
       services.add(priceList.findService(requirement.getName(), requirement.getMeasure()));
     }
     return new Offer(site, services);

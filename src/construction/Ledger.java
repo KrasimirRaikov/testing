@@ -9,7 +9,7 @@ import java.util.List;
 public class Ledger {
   private ConstructionSite site;
   private Offer offer;
-  private List<Report> reports= new ArrayList<>();
+  private List<Report> reports = new ArrayList<>();
 
   public Ledger(ConstructionSite site) {
     this.site = site;
@@ -21,9 +21,9 @@ public class Ledger {
   }
 
   public double price() {
-    double price=0;
-    for(Report report: reports){
-      price+=report.getQuantity()*report.getPrice();
+    double price = 0;
+    for (Report report : reports) {
+      price += report.getQuantity() * report.getPrice();
     }
     return price;
   }
@@ -33,6 +33,6 @@ public class Ledger {
   }
 
   public double profit() {
-    return offer.price()-price();
+    return offer.price() - price();
   }
 }
